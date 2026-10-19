@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://ci2upf8jv2v6v"]
+
+[ext_resource type="Script" uid="uid://boxmxrodjpm54" path="res://Scripts/house.gd" id="1_c8aik"]
+[ext_resource type="Texture2D" uid="uid://csdt0ny08xik0" path="res://img/house_inside.png" id="1_q8l06"]
+[ext_resource type="PackedScene" uid="uid://dvss8ujcg2k86" path="res://Scenes/hero.tscn" id="2_c8aik"]
+[ext_resource type="PackedScene" uid="uid://dbxq0p4djq03o" path="res://Scenes/adventure_ui.tscn" id="3_cpag2"]
+[ext_resource type="PackedScene" uid="uid://bur0sv35we3up" path="res://Scenes/AdventureMessageBox.tscn" id="5_cpag2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(65, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd5m"]
+size = Vector2(61, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qhtv"]
+size = Vector2(20, 137)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlu20"]
+size = Vector2(20, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdxel"]
+size = Vector2(169, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wfv6"]
+size = Vector2(59, 20)
+
+[node name="House" type="Node2D" unique_id=245119882]
+script = ExtResource("1_c8aik")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1951555283]
+texture = ExtResource("1_q8l06")
+centered = false
+
+[node name="Hero" parent="." unique_id=1523931981 instance=ExtResource("2_c8aik")]
+
+[node name="AdventureUI" parent="." unique_id=1485069369 instance=ExtResource("3_cpag2")]
+
+[node name="EntryDoor" type="Node2D" parent="." unique_id=1853966017]
+position = Vector2(161, 160)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2018847246]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=465296769]
+position = Vector2(103, 168)
+shape = SubResource("RectangleShape2D_aw8ah")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=764168380]
+position = Vector2(218, 168)
+shape = SubResource("RectangleShape2D_pxd5m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1471962006]
+position = Vector2(248, 97.5)
+shape = SubResource("RectangleShape2D_6qhtv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=168885227]
+position = Vector2(68, 88)
+shape = SubResource("RectangleShape2D_vlu20")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=159543502]
+position = Vector2(159.5, 61)
+shape = SubResource("RectangleShape2D_sdxel")
+
+[node name="ExitDoor" type="Area2D" parent="." unique_id=1210107832]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor" unique_id=461038672]
+position = Vector2(161.5, 182)
+shape = SubResource("RectangleShape2D_3wfv6")
+
+[node name="MessageBox" parent="." unique_id=764465807 instance=ExtResource("5_cpag2")]
+
+[connection signal="body_entered" from="ExitDoor" to="." method="_on_exit_door_body_entered"]

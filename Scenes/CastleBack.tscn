@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://6etvpevjeet5"]
+
+[ext_resource type="Texture2D" uid="uid://cy5o6qgkrcigu" path="res://img/castle_back.png" id="1_esavb"]
+[ext_resource type="Script" uid="uid://daeydqowjwe3x" path="res://Scripts/castle_back.gd" id="1_r4pva"]
+[ext_resource type="PackedScene" uid="uid://dvss8ujcg2k86" path="res://Scenes/hero.tscn" id="2_do48f"]
+[ext_resource type="PackedScene" uid="uid://dbxq0p4djq03o" path="res://Scenes/adventure_ui.tscn" id="3_r4pva"]
+[ext_resource type="PackedScene" uid="uid://bur0sv35we3up" path="res://Scenes/AdventureMessageBox.tscn" id="4_nk3fp"]
+[ext_resource type="Texture2D" uid="uid://tot2bmysqi7i" path="res://img/princess.png" id="5_l2jvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqhpx"]
+size = Vector2(134, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lifwo"]
+size = Vector2(155, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu6y6"]
+size = Vector2(20, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxo6d"]
+size = Vector2(20, 120.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyjqx"]
+size = Vector2(344, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt4fl"]
+size = Vector2(62, 20)
+
+[node name="CastleBack" type="Node2D" unique_id=1666727964]
+script = ExtResource("1_r4pva")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1857537144]
+texture = ExtResource("1_esavb")
+centered = false
+
+[node name="Hero" parent="." unique_id=1523931981 instance=ExtResource("2_do48f")]
+position = Vector2(111, 159)
+
+[node name="AdventureUI" parent="." unique_id=1485069369 instance=ExtResource("3_r4pva")]
+
+[node name="MessageBox" parent="." unique_id=764465807 instance=ExtResource("4_nk3fp")]
+
+[node name="Princess" type="Sprite2D" parent="." unique_id=504203506]
+position = Vector2(151, 132)
+texture = ExtResource("5_l2jvo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2030455207]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1083764257]
+position = Vector2(64, 81)
+shape = SubResource("RectangleShape2D_vqhpx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=840920742]
+position = Vector2(253.5, 81)
+shape = SubResource("RectangleShape2D_lifwo")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=859789614]
+position = Vector2(-9, 150)
+shape = SubResource("RectangleShape2D_hu6y6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1597728197]
+position = Vector2(330, 145.75)
+shape = SubResource("RectangleShape2D_bxo6d")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=688528958]
+position = Vector2(168, 205)
+shape = SubResource("RectangleShape2D_pyjqx")
+
+[node name="Exit" type="Area2D" parent="." unique_id=1830164966]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=1739561979]
+position = Vector2(154, 75)
+shape = SubResource("RectangleShape2D_vt4fl")
+
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

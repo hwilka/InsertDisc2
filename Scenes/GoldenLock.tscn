@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dmmrvxvamdaui"]
+
+[ext_resource type="Texture2D" uid="uid://c40wxkvjghbq" path="res://img/golden_lock.png" id="1_gaknv"]
+[ext_resource type="Script" uid="uid://b3jngy6q0yq03" path="res://Scripts/golden_lock.gd" id="1_qquq1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmsbi"]
+size = Vector2(61, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gryab"]
+size = Vector2(72, 20)
+
+[node name="GoldenLock" type="Area2D" unique_id=1523723765]
+collision_layer = 8
+script = ExtResource("1_qquq1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1259482002]
+texture = ExtResource("1_gaknv")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1238619772]
+position = Vector2(32.5, 65)
+shape = SubResource("RectangleShape2D_bmsbi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1215645402]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=900903972]
+position = Vector2(35, 60)
+shape = SubResource("RectangleShape2D_gryab")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

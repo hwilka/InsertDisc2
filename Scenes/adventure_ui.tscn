@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dbxq0p4djq03o"]
+
+[ext_resource type="Texture2D" uid="uid://beffa5tvplib3" path="res://img/coin.png" id="1_1783x"]
+[ext_resource type="Script" uid="uid://cj0s7co365vvp" path="res://Scripts/adventure_ui.gd" id="1_afsbq"]
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="2_afsbq"]
+[ext_resource type="Texture2D" uid="uid://d3njcutq7deqp" path="res://img/key.png" id="3_mee3l"]
+[ext_resource type="Texture2D" uid="uid://cgfwlfrma5x8n" path="res://img/trophy.png" id="4_ghxfq"]
+[ext_resource type="Texture2D" uid="uid://ribon03tvc4k" path="res://img/lantern.png" id="5_packl"]
+[ext_resource type="Texture2D" uid="uid://2gmswvn4olju" path="res://img/oil_symbol.png" id="7_ghxfq"]
+[ext_resource type="Texture2D" uid="uid://cuvn5ksl5xwjq" path="res://img/sword_symbol.png" id="8_packl"]
+[ext_resource type="Texture2D" uid="uid://b3b76o15plrgt" path="res://img/golden_key.png" id="9_packl"]
+
+[node name="AdventureUI" type="Node2D" unique_id=1485069369]
+script = ExtResource("1_afsbq")
+
+[node name="Coins" type="Sprite2D" parent="." unique_id=1240504375]
+position = Vector2(6, 5)
+texture = ExtResource("1_1783x")
+centered = false
+
+[node name="Label" type="Label" parent="Coins" unique_id=242962708]
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 26.0
+offset_bottom = 11.0
+theme_override_fonts/font = ExtResource("2_afsbq")
+theme_override_font_sizes/font_size = 8
+text = "10"
+
+[node name="Keys" type="Sprite2D" parent="." unique_id=1922993479]
+position = Vector2(6, 21)
+texture = ExtResource("3_mee3l")
+centered = false
+
+[node name="Label" type="Label" parent="Keys" unique_id=1754790649]
+offset_left = 9.0
+offset_top = 4.0
+offset_right = 28.0
+offset_bottom = 12.0
+theme_override_fonts/font = ExtResource("2_afsbq")
+theme_override_font_sizes/font_size = 8
+text = "10"
+
+[node name="Trophy" type="Sprite2D" parent="." unique_id=1321970207]
+position = Vector2(2, 41)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ghxfq")
+centered = false
+
+[node name="Lantern" type="Sprite2D" parent="." unique_id=855108653]
+position = Vector2(4, 39)
+scale = Vector2(2, 2)
+texture = ExtResource("5_packl")
+centered = false
+
+[node name="Oil" type="Sprite2D" parent="." unique_id=646833486]
+position = Vector2(3, 41)
+scale = Vector2(2, 2)
+texture = ExtResource("7_ghxfq")
+centered = false
+
+[node name="Sword" type="Sprite2D" parent="." unique_id=1749066172]
+position = Vector2(3, 63)
+scale = Vector2(3, 3)
+texture = ExtResource("8_packl")
+centered = false
+
+[node name="GoldKey" type="Sprite2D" parent="." unique_id=1584728469]
+position = Vector2(8, 63)
+texture = ExtResource("9_packl")
+centered = false

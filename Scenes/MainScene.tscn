@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://cxqj0ms172oxg"]
+
+[ext_resource type="Script" uid="uid://c1ty3w865slsb" path="res://Scripts/main_scene.gd" id="1_hpc76"]
+[ext_resource type="Texture2D" uid="uid://b31nb6ieeb7hu" path="res://img/Global_BG.png" id="2_8ju71"]
+[ext_resource type="Shader" uid="uid://csu5i4hvhcv7p" path="res://Shader/Monitor.gdshader" id="2_tr2i4"]
+[ext_resource type="Texture2D" uid="uid://bxgeif05ucq6g" path="res://img/monitor.png" id="3_nhkr4"]
+[ext_resource type="Texture2D" uid="uid://b7x4j3f52w6q" path="res://img/blue_message_box.png" id="3_qxria"]
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="4_y4jh7"]
+[ext_resource type="Texture2D" uid="uid://mtd88knukln5" path="res://img/floppys/floppy_adventure_1.png" id="6_0iob3"]
+[ext_resource type="Texture2D" uid="uid://bq5pbxcrd3abj" path="res://img/Floppy_Select.png" id="6_4b75m"]
+[ext_resource type="Texture2D" uid="uid://d0cd5ktdiil3n" path="res://img/floppys/floppy_adventure_3.png" id="7_4b75m"]
+[ext_resource type="Texture2D" uid="uid://pqqt7toudjdp" path="res://img/floppys/floppy_adventure_4.png" id="8_8ju71"]
+[ext_resource type="Texture2D" uid="uid://tux1a13vbxx2" path="res://img/floppys/floppy_jump_3.png" id="9_xb4mg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tr2i4"]
+shader = ExtResource("2_tr2i4")
+
+[sub_resource type="QuadMesh" id="QuadMesh_hpc76"]
+size = Vector2(320, 200)
+center_offset = Vector3(160, 100, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aw8ah"]
+viewport_path = NodePath("SubViewport")
+
+[node name="MainScene" type="Node2D" unique_id=1195491330]
+script = ExtResource("1_hpc76")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1381541555]
+position = Vector2(991.0001, 685)
+scale = Vector2(3.4333334, 3.4333334)
+texture = ExtResource("2_8ju71")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1682494271]
+size = Vector2i(320, 200)
+
+[node name="scene" type="Node2D" parent="SubViewport" unique_id=1175849406]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="SubViewport" unique_id=67544276]
+
+[node name="MessageBox" type="Sprite2D" parent="SubViewport/CanvasLayer2" unique_id=2058802228]
+visible = false
+texture = ExtResource("3_qxria")
+centered = false
+offset = Vector2(45, 40)
+
+[node name="Title" type="Label" parent="SubViewport/CanvasLayer2/MessageBox" unique_id=1537857868]
+offset_left = 50.0
+offset_top = 45.0
+offset_right = 138.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("4_y4jh7")
+theme_override_font_sizes/font_size = 8
+text = "Warning"
+
+[node name="Body" type="Label" parent="SubViewport/CanvasLayer2/MessageBox" unique_id=1087054693]
+offset_left = 55.0
+offset_top = 65.0
+offset_right = 223.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("4_y4jh7")
+theme_override_font_sizes/font_size = 8
+text = "Please insert disk 2.
+
+Press <ESC> to abort."
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport" unique_id=2033105948]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="SubViewport/CanvasLayer" unique_id=2066073268]
+material = SubResource("ShaderMaterial_tr2i4")
+mesh = SubResource("QuadMesh_hpc76")
+
+[node name="Monitor" type="Node2D" parent="." unique_id=406407475]
+position = Vector2(900, 550)
+
+[node name="ScreenSprite" type="Sprite2D" parent="Monitor" unique_id=336452481]
+position = Vector2(-5, -50)
+scale = Vector2(4.05, 4.05)
+texture = SubResource("ViewportTexture_aw8ah")
+
+[node name="Front" type="Sprite2D" parent="Monitor" unique_id=336110499]
+texture = ExtResource("3_nhkr4")
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=515589205]
+volume_db = -28.585
+autoplay = true
+
+[node name="Camera_Coordinates" type="Node2D" parent="." unique_id=2110461639]
+position = Vector2(960, 540)
+
+[node name="Camera2D" type="Camera2D" parent="Camera_Coordinates" unique_id=1748678434]
+
+[node name="Position1" type="Node2D" parent="Camera_Coordinates" unique_id=1015727192]
+
+[node name="Position2" type="Node2D" parent="Camera_Coordinates" unique_id=1714153376]
+position = Vector2(0, 260)
+
+[node name="Floppys" type="Node2D" parent="." unique_id=1149065732]
+position = Vector2(-177, 1323)
+
+[node name="DiscSelect" type="Sprite2D" parent="Floppys" unique_id=828726773]
+texture = ExtResource("6_4b75m")
+
+[node name="Discs" type="Node2D" parent="Floppys" unique_id=1778109799]
+
+[node name="Adv1" type="Sprite2D" parent="Floppys/Discs" unique_id=1505113039]
+texture = ExtResource("6_0iob3")
+
+[node name="Adv3" type="Sprite2D" parent="Floppys/Discs" unique_id=251675684]
+position = Vector2(450, 0)
+texture = ExtResource("7_4b75m")
+
+[node name="Adv4" type="Sprite2D" parent="Floppys/Discs" unique_id=508891316]
+position = Vector2(900, 0)
+texture = ExtResource("8_8ju71")
+
+[node name="Racer2" type="Sprite2D" parent="Floppys/Discs" unique_id=1804923939]
+position = Vector2(1350, 0)
+texture = ExtResource("6_0iob3")
+
+[node name="Jump3" type="Sprite2D" parent="Floppys/Discs" unique_id=635819503]
+position = Vector2(1800, 0)
+texture = ExtResource("9_xb4mg")
+
+[node name="Jump4" type="Sprite2D" parent="Floppys/Discs" unique_id=1919137223]
+position = Vector2(2250, 0)
+texture = ExtResource("9_xb4mg")
+
+[connection signal="finished" from="SoundPlayer" to="." method="_on_sound_player_finished"]

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ckx02otd1aop"]
+
+[ext_resource type="Script" uid="uid://cs68ao6hbbwpy" path="res://Scripts/bush.gd" id="1_kx7ng"]
+[ext_resource type="Texture2D" uid="uid://br01d16055git" path="res://img/Bush.png" id="1_tld8b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt4fl"]
+size = Vector2(13, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gryab"]
+size = Vector2(24, 31)
+
+[node name="Bush" type="Area2D" unique_id=325743942]
+collision_layer = 8
+collision_mask = 257
+script = ExtResource("1_kx7ng")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1839562315]
+texture = ExtResource("1_tld8b")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=541540123]
+position = Vector2(-0.5, 4)
+shape = SubResource("RectangleShape2D_vt4fl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1194719022]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=374887319]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_gryab")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

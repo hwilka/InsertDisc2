@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://dgl8m0pilril"]
+
+[ext_resource type="Script" uid="uid://be8qouwiu6pbr" path="res://Scripts/cave.gd" id="1_kpbna"]
+[ext_resource type="Shader" uid="uid://bvc0xssytekgy" path="res://Shader/cave_shader.gdshader" id="1_ofyxu"]
+[ext_resource type="Texture2D" uid="uid://csse70sh80g6v" path="res://img/Cave.png" id="2_ofyxu"]
+[ext_resource type="PackedScene" uid="uid://dvss8ujcg2k86" path="res://Scenes/hero.tscn" id="3_2ngrw"]
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="4_gsklp"]
+[ext_resource type="PackedScene" uid="uid://dbxq0p4djq03o" path="res://Scenes/adventure_ui.tscn" id="4_yw2ac"]
+[ext_resource type="Texture2D" uid="uid://dmksbvwseaw07" path="res://img/cave_mask_lantern.png" id="6_2ngrw"]
+[ext_resource type="PackedScene" uid="uid://dwh03dynev1qs" path="res://Scenes/chest.tscn" id="8_gsklp"]
+[ext_resource type="PackedScene" uid="uid://bur0sv35we3up" path="res://Scenes/AdventureMessageBox.tscn" id="9_ri4iq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bmsbi"]
+viewport_path = NodePath("LightMap")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gryab"]
+resource_local_to_scene = true
+shader = ExtResource("1_ofyxu")
+shader_parameter/mask_texture = SubResource("ViewportTexture_bmsbi")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(135, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd5m"]
+size = Vector2(146, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qhtv"]
+size = Vector2(20, 221)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlu20"]
+size = Vector2(333, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdxel"]
+size = Vector2(20, 217)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wfv6"]
+size = Vector2(53, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1rt7"]
+size = Vector2(44, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jco0"]
+size = Vector2(122, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w47hu"]
+size = Vector2(28, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6msv6"]
+size = Vector2(94, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y0bp"]
+size = Vector2(30, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26lr2"]
+size = Vector2(65, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oksse"]
+size = Vector2(72.64961, 35.47058)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xr8a"]
+size = Vector2(41, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xlh3"]
+size = Vector2(39, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0ypj"]
+size = Vector2(38, 95)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2ngrw"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yw2ac"]
+blend_mode = 1
+
+[node name="Cave" type="Node2D" unique_id=891363139]
+script = ExtResource("1_kpbna")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1450667698]
+texture = ExtResource("2_ofyxu")
+centered = false
+
+[node name="Chest" parent="." unique_id=756932569 instance=ExtResource("8_gsklp")]
+position = Vector2(306, 125)
+
+[node name="DarkMap" type="ColorRect" parent="." unique_id=209869779]
+material = SubResource("ShaderMaterial_gryab")
+offset_right = 320.0
+offset_bottom = 200.0
+color = Color(0, 0, 0, 1)
+
+[node name="Hero" parent="." unique_id=1523931981 instance=ExtResource("3_2ngrw")]
+position = Vector2(154, 183)
+
+[node name="LabelDark" type="Label" parent="." unique_id=706896056]
+offset_left = 43.0
+offset_top = 3.0
+offset_right = 280.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_gsklp")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="AdventureUI" parent="." unique_id=1485069369 instance=ExtResource("4_yw2ac")]
+
+[node name="Entry" type="Node2D" parent="." unique_id=1937495550]
+position = Vector2(155, 191)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1191520263]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1669423419]
+position = Vector2(64.5, 208)
+shape = SubResource("RectangleShape2D_aw8ah")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=572122547]
+position = Vector2(250, 208)
+shape = SubResource("RectangleShape2D_pxd5m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=887167083]
+position = Vector2(-11, 96)
+shape = SubResource("RectangleShape2D_6qhtv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=1564649598]
+position = Vector2(160.5, -11)
+shape = SubResource("RectangleShape2D_vlu20")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls" unique_id=1374438835]
+position = Vector2(330, 103.5)
+shape = SubResource("RectangleShape2D_sdxel")
+
+[node name="Exit" type="Area2D" parent="." unique_id=721796213]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=809577247]
+position = Vector2(154.5, 218)
+shape = SubResource("RectangleShape2D_3wfv6")
+
+[node name="SafePath" type="Area2D" parent="." unique_id=988096481]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafePath" unique_id=75427555]
+position = Vector2(153, 175.5)
+shape = SubResource("RectangleShape2D_l1rt7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SafePath" unique_id=1655408296]
+position = Vector2(105, 146)
+shape = SubResource("RectangleShape2D_6jco0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="SafePath" unique_id=1655059084]
+position = Vector2(61, 85)
+shape = SubResource("RectangleShape2D_w47hu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="SafePath" unique_id=1983051540]
+position = Vector2(114, 34.5)
+shape = SubResource("RectangleShape2D_6msv6")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="SafePath" unique_id=86140746]
+position = Vector2(146, 67.5)
+shape = SubResource("RectangleShape2D_1y0bp")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="SafePath" unique_id=2033168722]
+position = Vector2(183.5, 81.5)
+shape = SubResource("RectangleShape2D_26lr2")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="SafePath" unique_id=1355675354]
+position = Vector2(231.45566, 105.913506)
+rotation = 0.7749262
+shape = SubResource("RectangleShape2D_oksse")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="SafePath" unique_id=1504563317]
+position = Vector2(267.5, 126.5)
+shape = SubResource("RectangleShape2D_3xr8a")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="SafePath" unique_id=1869411859]
+position = Vector2(290.5, 126.5)
+shape = SubResource("RectangleShape2D_4xlh3")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="SafePath" unique_id=1630352423]
+position = Vector2(309, 122.5)
+shape = SubResource("RectangleShape2D_k0ypj")
+
+[node name="Dark2" type="ColorRect" parent="." unique_id=1578756794]
+visible = false
+offset_right = 320.0
+offset_bottom = 200.0
+color = Color(0, 0, 0, 1)
+
+[node name="LabelDark2" type="Label" parent="Dark2" unique_id=1556686542]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 77.0
+offset_right = 278.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_gsklp")
+theme_override_font_sizes/font_size = 16
+text = "You fell of
+a cliff"
+horizontal_alignment = 1
+
+[node name="LightMap" type="SubViewport" parent="." unique_id=376453041]
+size = Vector2i(320, 200)
+
+[node name="BG" type="ColorRect" parent="LightMap" unique_id=2116521783]
+offset_right = 320.0
+offset_bottom = 200.0
+color = Color(0, 0, 0, 1)
+
+[node name="EntryLight" type="Sprite2D" parent="LightMap" unique_id=1827673989]
+material = SubResource("CanvasItemMaterial_2ngrw")
+position = Vector2(155, 210)
+texture = ExtResource("6_2ngrw")
+
+[node name="LanternShine" type="Sprite2D" parent="LightMap" unique_id=1479400747]
+material = SubResource("CanvasItemMaterial_yw2ac")
+texture = ExtResource("6_2ngrw")
+offset = Vector2(0, -16)
+
+[node name="MessageBox" parent="." unique_id=764465807 instance=ExtResource("9_ri4iq")]
+
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
+[connection signal="body_exited" from="SafePath" to="." method="_on_safe_path_body_exited"]

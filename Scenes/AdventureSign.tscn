@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dki4fvvj0wvvc"]
+
+[ext_resource type="Script" uid="uid://fnmfqlns0odt" path="res://Scripts/adventure_sign.gd" id="1_72571"]
+[ext_resource type="Texture2D" uid="uid://508wo5aqpyo" path="res://img/Adventure_Sign.png" id="1_dnlmd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt4fl"]
+size = Vector2(34, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gryab"]
+size = Vector2(47, 44)
+
+[node name="Sign" type="Area2D" unique_id=1315198960]
+collision_layer = 8
+script = ExtResource("1_72571")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=667841753]
+texture = ExtResource("1_dnlmd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1607671107]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=955847668]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vt4fl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=692880218]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_gryab")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

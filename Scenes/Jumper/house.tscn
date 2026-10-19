@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dvl3wedg30ftd"]
+
+[ext_resource type="Texture2D" uid="uid://e2eu5aoe6ixx" path="res://img/Jumper/House.png" id="1_v48nj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qrc2"]
+size = Vector2(73, 95)
+
+[node name="House" type="StaticBody2D" unique_id=1399241204]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1609058313]
+texture = ExtResource("1_v48nj")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1922684532]
+position = Vector2(36.5, 47.5)
+shape = SubResource("RectangleShape2D_5qrc2")

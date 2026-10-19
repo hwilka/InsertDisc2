@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://cxb1r0g7hx6ib"]
+
+[ext_resource type="Script" uid="uid://c2obxgrx1ypos" path="res://Scripts/main_menu.gd" id="1_8saeu"]
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="1_853f1"]
+[ext_resource type="Shader" uid="uid://cigp04l141gta" path="res://Shader/MainMenu.gdshader" id="1_tt5f1"]
+[ext_resource type="Texture2D" uid="uid://bkatf3r86xj66" path="res://img/small_arrow.png" id="2_ghw46"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gryab"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bnhvo"]
+shader = ExtResource("1_tt5f1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vt4fl"]
+size = Vector2(480, 270)
+center_offset = Vector3(240, 135, 0)
+
+[node name="MainMenu" type="Node2D" unique_id=425225936]
+script = ExtResource("1_8saeu")
+
+[node name="Screen" type="Sprite2D" parent="." unique_id=1853506259]
+scale = Vector2(4, 4)
+texture = SubResource("ViewportTexture_gryab")
+centered = false
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1896844373]
+size = Vector2i(480, 270)
+
+[node name="Content" type="Node2D" parent="SubViewport" unique_id=1916985632]
+
+[node name="BG" type="ColorRect" parent="SubViewport/Content" unique_id=1971002212]
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0.12225223, 0.12225223, 0.12225223, 1)
+
+[node name="Main" type="Node2D" parent="SubViewport/Content" unique_id=1479298308]
+
+[node name="MenuItems" type="Node2D" parent="SubViewport/Content/Main" unique_id=1687763190]
+position = Vector2(30, 180)
+
+[node name="Arrow" type="Sprite2D" parent="SubViewport/Content/Main/MenuItems" unique_id=1927805816]
+position = Vector2(-20, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ghw46")
+centered = false
+offset = Vector2(0, -1)
+
+[node name="StartGame" type="Label" parent="SubViewport/Content/Main/MenuItems" unique_id=2122739508]
+offset_right = 160.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+text = "Start Game"
+
+[node name="Credits" type="Label" parent="SubViewport/Content/Main/MenuItems" unique_id=1345661223]
+offset_top = 30.0
+offset_right = 160.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+text = "Credits"
+
+[node name="Title" type="Label" parent="SubViewport/Content/Main" unique_id=1107560067]
+offset_left = 30.0
+offset_top = 40.0
+offset_right = 342.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+theme_override_font_sizes/font_size = 24
+text = "Insert Disc 2"
+
+[node name="Control" type="Node2D" parent="SubViewport/Content/Main" unique_id=135887]
+position = Vector2(300, 170)
+
+[node name="Label" type="Label" parent="SubViewport/Content/Main/Control" unique_id=1024169014]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+theme_override_font_sizes/font_size = 8
+text = "Control:"
+
+[node name="Label1" type="Label" parent="SubViewport/Content/Main/Control" unique_id=1317872998]
+offset_top = 20.0
+offset_right = 168.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+theme_override_font_sizes/font_size = 8
+text = "Move: WASD/Arrow keys"
+
+[node name="Label2" type="Label" parent="SubViewport/Content/Main/Control" unique_id=99718335]
+offset_top = 40.0
+offset_right = 168.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+theme_override_font_sizes/font_size = 8
+text = "Action: Space / Enter"
+
+[node name="Label3" type="Label" parent="SubViewport/Content/Main/Control" unique_id=1334751516]
+offset_top = 60.0
+offset_right = 80.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+theme_override_font_sizes/font_size = 8
+text = "Abort: Esc"
+
+[node name="Credits" type="Node2D" parent="SubViewport/Content" unique_id=1728750967]
+visible = false
+position = Vector2(30, 20)
+
+[node name="Insert disc 2" type="Label" parent="SubViewport/Content/Credits" unique_id=169594383]
+offset_right = 224.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+text = "Insert disc 2 "
+
+[node name="Hendrik" type="Label" parent="SubViewport/Content/Credits" unique_id=1759930323]
+offset_top = 20.0
+offset_right = 224.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+theme_override_font_sizes/font_size = 8
+text = "A game by Hendrik Wilka"
+
+[node name="LD" type="Label" parent="SubViewport/Content/Credits" unique_id=672436608]
+offset_top = 30.0
+offset_right = 368.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+theme_override_font_sizes/font_size = 8
+text = "made in under 72 hours for Ludum Dare 60"
+
+[node name="Font" type="Label" parent="SubViewport/Content/Credits" unique_id=1740885426]
+offset_top = 70.0
+offset_right = 368.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+theme_override_font_sizes/font_size = 8
+text = "Font: Press Start 2P
+by The Press Start 2P Project Authors (cody@zone38.net)"
+
+[node name="Godot" type="Label" parent="SubViewport/Content/Credits" unique_id=379866969]
+offset_top = 120.0
+offset_right = 368.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+theme_override_font_sizes/font_size = 8
+text = "Proudly uses the Godot Game Engine"
+
+[node name="back" type="Label" parent="SubViewport/Content/Credits" unique_id=2044140190]
+offset_top = 200.0
+offset_right = 368.0
+offset_bottom = 235.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_853f1")
+theme_override_font_sizes/font_size = 8
+text = "Press <ENTER> or <ESC> to go back"
+
+[node name="ShaderLayer" type="CanvasLayer" parent="SubViewport" unique_id=1387254325]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="SubViewport/ShaderLayer" unique_id=1613304487]
+material = SubResource("ShaderMaterial_bnhvo")
+mesh = SubResource("QuadMesh_vt4fl")

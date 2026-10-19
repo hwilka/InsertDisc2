@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dv4bnwdky23oe"]
+
+[ext_resource type="Script" uid="uid://brquborqorssb" path="res://Scripts/spreadsheet.gd" id="1_e8w7x"]
+[ext_resource type="Texture2D" uid="uid://c5bjttmw3plgs" path="res://img/Spreadsheet_BG.png" id="1_ooa6o"]
+[ext_resource type="PackedScene" uid="uid://dvss8ujcg2k86" path="res://Scenes/hero.tscn" id="2_e8w7x"]
+[ext_resource type="Texture2D" uid="uid://qpcfx172yfm7" path="res://img/Spreadsheet_Assistant.png" id="2_fn3yy"]
+[ext_resource type="Texture2D" uid="uid://cc681tiebm42i" path="res://img/Spreadsheet_Bubble.png" id="3_e8w7x"]
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="6_hmr2o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qhtv"]
+size = Vector2(54, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(20, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd5m"]
+size = Vector2(20, 38)
+
+[node name="Spreadsheet" type="Node2D" unique_id=215217796]
+script = ExtResource("1_e8w7x")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=173246611]
+texture = ExtResource("1_ooa6o")
+centered = false
+
+[node name="Assistant" type="Sprite2D" parent="." unique_id=1210544770]
+position = Vector2(239, 146)
+texture = ExtResource("2_fn3yy")
+
+[node name="Area2D" type="Area2D" parent="Assistant" unique_id=1228613270]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Assistant/Area2D" unique_id=944081710]
+position = Vector2(-2, 27)
+shape = SubResource("RectangleShape2D_6qhtv")
+
+[node name="SpreadsheetBubble" type="Sprite2D" parent="." unique_id=1994854025]
+visible = false
+position = Vector2(240, 66)
+texture = ExtResource("3_e8w7x")
+
+[node name="Hero" parent="." unique_id=1523931981 instance=ExtResource("2_e8w7x")]
+position = Vector2(53, 190)
+
+[node name="EntryLeft" type="Node2D" parent="." unique_id=1588713715]
+position = Vector2(24, 185)
+
+[node name="ExitLeft" type="Area2D" parent="." unique_id=921791357]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitLeft" unique_id=36050738]
+position = Vector2(-13, 171.5)
+shape = SubResource("RectangleShape2D_aw8ah")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1799783605]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=727352719]
+position = Vector2(263, 174)
+shape = SubResource("RectangleShape2D_pxd5m")
+
+[node name="Label" type="Label" parent="." unique_id=1509049075]
+visible = false
+custom_maximum_size = Vector2(149, 61)
+offset_left = 166.0
+offset_top = 32.0
+offset_right = 315.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_hmr2o")
+theme_override_font_sizes/font_size = 8
+text = "Test"
+autowrap_mode = 2
+
+[connection signal="body_entered" from="Assistant/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Assistant/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="ExitLeft" to="." method="_on_exit_left_body_entered"]

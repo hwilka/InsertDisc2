@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://yxsc47pro1l6"]
+
+[ext_resource type="Texture2D" uid="uid://cia26me610nql" path="res://img/Lock_Mountain.png" id="1_abgy8"]
+[ext_resource type="Script" uid="uid://duljsnbknpphm" path="res://Scripts/cave_lock.gd" id="1_uwmv8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gryab"]
+size = Vector2(27, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt4fl"]
+size = Vector2(46, 15)
+
+[node name="CaveLock" type="Area2D" unique_id=1513928934]
+collision_layer = 8
+script = ExtResource("1_uwmv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=19839472]
+position = Vector2(-20, -28)
+texture = ExtResource("1_abgy8")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1438098244]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_gryab")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1623788400]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1409685923]
+position = Vector2(-1, -2.5)
+shape = SubResource("RectangleShape2D_vt4fl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

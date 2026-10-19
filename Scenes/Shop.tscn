@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://dn5g6jqscl3fu"]
+
+[ext_resource type="Script" uid="uid://c50o55u7w0v11" path="res://Scenes/shop.gd" id="1_ckylj"]
+[ext_resource type="Texture2D" uid="uid://yklt0b5heri6" path="res://img/shop.png" id="2_2aaoe"]
+[ext_resource type="PackedScene" uid="uid://dbxq0p4djq03o" path="res://Scenes/adventure_ui.tscn" id="3_ct2yw"]
+[ext_resource type="Texture2D" uid="uid://bbg4o3c36b58" path="res://img/shop_key.png" id="4_ccd4q"]
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="5_1mgah"]
+[ext_resource type="Texture2D" uid="uid://bawquwm4ayvmm" path="res://img/shop_sword.png" id="6_r8bg4"]
+[ext_resource type="Texture2D" uid="uid://buhnoyhnsg0il" path="res://img/shop_oil.png" id="7_m1c0q"]
+[ext_resource type="Texture2D" uid="uid://cjg1tfjkh1qup" path="res://img/arrow.png" id="8_2aaoe"]
+
+[node name="Shop" type="Node2D" unique_id=879009213]
+script = ExtResource("1_ckylj")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=501197162]
+texture = ExtResource("2_2aaoe")
+centered = false
+
+[node name="AdventureUI" parent="." unique_id=1485069369 instance=ExtResource("3_ct2yw")]
+
+[node name="item_key" type="Sprite2D" parent="." unique_id=1591442760]
+position = Vector2(53, 140)
+texture = ExtResource("4_ccd4q")
+
+[node name="Label" type="Label" parent="item_key" unique_id=1249797571]
+offset_left = -16.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_1mgah")
+text = "10"
+
+[node name="item_sword" type="Sprite2D" parent="." unique_id=349304288]
+position = Vector2(153, 140)
+texture = ExtResource("6_r8bg4")
+
+[node name="Label" type="Label" parent="item_sword" unique_id=394919776]
+offset_left = -24.0
+offset_top = 35.0
+offset_right = 24.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_1mgah")
+text = "100"
+
+[node name="item_oil" type="Sprite2D" parent="." unique_id=1642178064]
+position = Vector2(267, 140)
+texture = ExtResource("7_m1c0q")
+
+[node name="Label" type="Label" parent="item_oil" unique_id=289757177]
+offset_left = -15.0
+offset_top = 29.0
+offset_right = 33.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_1mgah")
+text = "10"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=829444243]
+offset_left = 210.0
+offset_top = 1.0
+offset_right = 320.0
+offset_bottom = 73.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=22741001]
+custom_minimum_size = Vector2(108, 70)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 110.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("5_1mgah")
+theme_override_font_sizes/font_size = 8
+text = "Hello hero,
+please have a look.
+
+Press <ESC> to leave."
+autowrap_mode = 2
+
+[node name="arrow" type="Sprite2D" parent="." unique_id=1699979256]
+position = Vector2(53, 60)
+texture = ExtResource("8_2aaoe")

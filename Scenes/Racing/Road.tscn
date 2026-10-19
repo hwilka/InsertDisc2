@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://cowqqnfnfx1uf"]
+
+[ext_resource type="Texture2D" uid="uid://dmw38xd837nxa" path="res://img/Racing/BG.png" id="1_8m8bk"]
+[ext_resource type="Script" uid="uid://eu4q3l8whpjh" path="res://Scripts/Racing/road.gd" id="1_mdugf"]
+[ext_resource type="Texture2D" uid="uid://myud06vadqsu" path="res://img/Racing/Street0.png" id="2_mdugf"]
+[ext_resource type="Texture2D" uid="uid://73banocaahkl" path="res://img/Racing/Street1.png" id="3_003ui"]
+[ext_resource type="Texture2D" uid="uid://bpqk53xnry3cc" path="res://img/Racing/Street2.png" id="4_dmnkn"]
+[ext_resource type="Texture2D" uid="uid://b1evhxuii5goi" path="res://img/Racing/Street3.png" id="5_ah211"]
+[ext_resource type="Texture2D" uid="uid://cny0pwc763jpp" path="res://img/Racing/Street4.png" id="6_ny6dk"]
+[ext_resource type="Texture2D" uid="uid://cwi4av7lce3xq" path="res://img/Racing/Street5.png" id="7_27uv4"]
+[ext_resource type="Texture2D" uid="uid://xqaioyx0rdw0" path="res://img/Racing/Street6.png" id="8_fpo5b"]
+[ext_resource type="Texture2D" uid="uid://b2uupbrchu07g" path="res://img/Racing/Street7.png" id="9_2aedf"]
+[ext_resource type="Texture2D" uid="uid://c7eybygtmj1ml" path="res://img/Racing/Street8.png" id="10_oknwp"]
+[ext_resource type="Texture2D" uid="uid://dpgx3hc37m1qe" path="res://img/Racing/Street9.png" id="11_w7n8u"]
+[ext_resource type="Texture2D" uid="uid://ckclvpiytgytg" path="res://img/Racing/StreetEnd.png" id="12_485pw"]
+[ext_resource type="Texture2D" uid="uid://by1td1dq3a0rb" path="res://img/Racing/Speedometer.png" id="14_27uv4"]
+[ext_resource type="Texture2D" uid="uid://cnj26x65cf7vf" path="res://img/Racing/SpeedometerLine.png" id="15_fpo5b"]
+[ext_resource type="Texture2D" uid="uid://derajtfjhts3f" path="res://img/Racing/ProgressBar.png" id="16_2aedf"]
+[ext_resource type="Texture2D" uid="uid://camboregdps68" path="res://img/Racing/ProgressLine.png" id="17_oknwp"]
+[ext_resource type="Texture2D" uid="uid://bddkawhfqfnmu" path="res://img/car_hero.png" id="18_w7n8u"]
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="19_fpo5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd5m"]
+size = Vector2(164, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(12.25, 9)
+
+[node name="Road" type="Node2D" unique_id=2068723569]
+script = ExtResource("1_mdugf")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1620744721]
+texture = ExtResource("1_8m8bk")
+centered = false
+
+[node name="R0" type="Node2D" parent="." unique_id=1279347868]
+position = Vector2(60, 161)
+
+[node name="Sprite2D" type="Sprite2D" parent="R0" unique_id=944734610]
+texture = ExtResource("2_mdugf")
+centered = false
+
+[node name="R1" type="Node2D" parent="." unique_id=1195973128]
+position = Vector2(70, 144)
+
+[node name="Sprite2D" type="Sprite2D" parent="R1" unique_id=665483096]
+texture = ExtResource("3_003ui")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R1" unique_id=1147372983]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="R1/StaticBody2D" unique_id=1902851125]
+position = Vector2(90, 8)
+shape = SubResource("RectangleShape2D_pxd5m")
+
+[node name="R2" type="Node2D" parent="." unique_id=1937602005]
+position = Vector2(80, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="R2" unique_id=856387844]
+texture = ExtResource("4_dmnkn")
+centered = false
+
+[node name="R3" type="Node2D" parent="." unique_id=1118170728]
+position = Vector2(90, 114)
+
+[node name="Sprite2D" type="Sprite2D" parent="R3" unique_id=653053711]
+texture = ExtResource("5_ah211")
+centered = false
+
+[node name="R4" type="Node2D" parent="." unique_id=36686908]
+position = Vector2(100, 102)
+
+[node name="Sprite2D" type="Sprite2D" parent="R4" unique_id=1691496236]
+texture = ExtResource("6_ny6dk")
+centered = false
+
+[node name="R5" type="Node2D" parent="." unique_id=1985884588]
+position = Vector2(110, 92)
+
+[node name="Sprite2D" type="Sprite2D" parent="R5" unique_id=1639318754]
+texture = ExtResource("7_27uv4")
+centered = false
+
+[node name="R6" type="Node2D" parent="." unique_id=1800781191]
+position = Vector2(120, 82)
+
+[node name="Sprite2D" type="Sprite2D" parent="R6" unique_id=1578814124]
+texture = ExtResource("8_fpo5b")
+centered = false
+
+[node name="R7" type="Node2D" parent="." unique_id=409778287]
+position = Vector2(130, 72)
+
+[node name="Sprite2D" type="Sprite2D" parent="R7" unique_id=1892155766]
+texture = ExtResource("9_2aedf")
+centered = false
+
+[node name="R8" type="Node2D" parent="." unique_id=1451434190]
+position = Vector2(140, 64)
+
+[node name="Sprite2D" type="Sprite2D" parent="R8" unique_id=58086632]
+texture = ExtResource("10_oknwp")
+centered = false
+
+[node name="R9" type="Node2D" parent="." unique_id=347496553]
+position = Vector2(150, 56)
+
+[node name="Sprite2D" type="Sprite2D" parent="R9" unique_id=1887409984]
+texture = ExtResource("11_w7n8u")
+centered = false
+
+[node name="RE" type="Node2D" parent="." unique_id=15844518]
+position = Vector2(155, 48)
+
+[node name="Sprite2D" type="Sprite2D" parent="RE" unique_id=764363791]
+texture = ExtResource("12_485pw")
+centered = false
+
+[node name="Cars" type="Node2D" parent="." unique_id=1305016148]
+position = Vector2(161, 48)
+
+[node name="HeroCar" type="Area2D" parent="Cars" unique_id=1963764040]
+position = Vector2(0, 88)
+scale = Vector2(2, 2)
+collision_mask = 96
+
+[node name="Sprite2D" type="Sprite2D" parent="Cars/HeroCar" unique_id=1341851076]
+texture = ExtResource("18_w7n8u")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cars/HeroCar" unique_id=1254873403]
+position = Vector2(-0.125, 9.5)
+shape = SubResource("RectangleShape2D_aw8ah")
+
+[node name="Speedometer" type="Sprite2D" parent="." unique_id=167910164]
+position = Vector2(1, 163)
+texture = ExtResource("14_27uv4")
+centered = false
+
+[node name="SpeedometerRot" type="Node2D" parent="Speedometer" unique_id=1125751121]
+position = Vector2(31.5, 32.5)
+
+[node name="SpeedometerLine" type="Sprite2D" parent="Speedometer/SpeedometerRot" unique_id=1006667574]
+position = Vector2(-23.5, -2.5)
+texture = ExtResource("15_fpo5b")
+centered = false
+
+[node name="ProgressBar" type="Sprite2D" parent="." unique_id=1235347841]
+position = Vector2(6, 6)
+texture = ExtResource("16_2aedf")
+centered = false
+
+[node name="ProgressBarH" type="Node2D" parent="ProgressBar" unique_id=370827762]
+position = Vector2(4, 43)
+
+[node name="ProgressBarLine" type="Sprite2D" parent="ProgressBar/ProgressBarH" unique_id=131680293]
+modulate = Color(0.7372549, 0, 0, 1)
+texture = ExtResource("17_oknwp")
+
+[node name="LabelScore" type="Label" parent="." unique_id=163161669]
+offset_left = 245.0
+offset_top = 9.0
+offset_right = 309.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("19_fpo5b")
+text = "1/20"
+
+[node name="LabelMsg" type="Label" parent="." unique_id=542080108]
+offset_left = 9.0
+offset_top = 66.0
+offset_right = 313.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource("19_fpo5b")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1

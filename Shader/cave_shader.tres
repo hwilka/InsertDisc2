@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://coc16bp7stxpi"]
+
+[ext_resource type="Shader" uid="uid://bvc0xssytekgy" path="res://Shader/cave_shader.gdshader" id="1_sigcq"]
+
+[resource]
+shader = ExtResource("1_sigcq")

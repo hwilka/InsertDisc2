@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cfb20tp8gfex5"]
+
+[ext_resource type="Script" uid="uid://ib7gtg4ps5a8" path="res://Scripts/Racing/racing_title.gd" id="1_m7ten"]
+[ext_resource type="Texture2D" uid="uid://v60yk36f2858" path="res://img/Racing/Racer2Title.png" id="2_s1rrx"]
+[ext_resource type="Texture2D" uid="uid://byta785jgrsoj" path="res://img/Racing/HeroTitle.png" id="3_5bfo8"]
+[ext_resource type="PackedScene" uid="uid://dvss8ujcg2k86" path="res://Scenes/hero.tscn" id="4_wjmhk"]
+[ext_resource type="Texture2D" uid="uid://ckm0nptxjcstb" path="res://img/Racing/steps.png" id="5_5ll7a"]
+[ext_resource type="Texture2D" uid="uid://cgfwlfrma5x8n" path="res://img/trophy.png" id="6_e24m0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(14, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd5m"]
+size = Vector2(21, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qhtv"]
+
+[node name="RacingTitle" type="Node2D" unique_id=1987604063]
+script = ExtResource("1_m7ten")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=54976346]
+texture = ExtResource("2_s1rrx")
+
+[node name="Car" type="Sprite2D" parent="." unique_id=1592354054]
+position = Vector2(99, 59)
+texture = ExtResource("3_5bfo8")
+hframes = 2
+
+[node name="Hero" parent="." unique_id=1523931981 instance=ExtResource("4_wjmhk")]
+position = Vector2(-120, 83)
+
+[node name="steps" type="Sprite2D" parent="." unique_id=718504995]
+position = Vector2(-39, 17)
+texture = ExtResource("5_5ll7a")
+
+[node name="Trophy1" type="Sprite2D" parent="." unique_id=469397397]
+position = Vector2(-38, -6)
+texture = ExtResource("6_e24m0")
+
+[node name="Trophy2" type="Sprite2D" parent="." unique_id=125224488]
+visible = false
+position = Vector2(-152, -90)
+texture = ExtResource("6_e24m0")
+
+[node name="walls" type="StaticBody2D" parent="." unique_id=1667033608]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls" unique_id=1113003813]
+position = Vector2(163, 63)
+shape = SubResource("RectangleShape2D_aw8ah")
+
+[node name="EntryRace" type="Node2D" parent="." unique_id=381628850]
+position = Vector2(18, 78)
+
+[node name="EntryLeft" type="Node2D" parent="." unique_id=1295982698]
+position = Vector2(-147, 80)
+
+[node name="ExitLeft" type="Area2D" parent="." unique_id=1788121931]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitLeft" unique_id=1741329272]
+position = Vector2(-173, 77)
+shape = SubResource("RectangleShape2D_pxd5m")
+
+[node name="ExitRace" type="Area2D" parent="." unique_id=145717788]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitRace" unique_id=1941498221]
+position = Vector2(61, 76)
+shape = SubResource("RectangleShape2D_6qhtv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1709920095]
+
+[connection signal="body_entered" from="ExitLeft" to="." method="_on_exit_left_body_entered"]
+[connection signal="body_entered" from="ExitRace" to="." method="_on_exit_race_body_entered"]

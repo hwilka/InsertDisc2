@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://bbtmldtamhk1y"]
+
+[ext_resource type="Script" uid="uid://dnswp0yu47l7l" path="res://Scripts/jump_level.gd" id="1_tf1mu"]
+[ext_resource type="PackedScene" uid="uid://dvss8ujcg2k86" path="res://Scenes/hero.tscn" id="2_l80qf"]
+[ext_resource type="Texture2D" uid="uid://cs88w455b4etr" path="res://img/Jumper/JumperArrow.png" id="2_rljou"]
+[ext_resource type="Texture2D" uid="uid://daq5kur06vvw0" path="res://img/Jumper/coin.png" id="3_l80qf"]
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="3_ouauv"]
+[ext_resource type="PackedScene" uid="uid://c6qpcf24unwcu" path="res://Scenes/Jumper/jumper_line.tscn" id="5_h0kw3"]
+[ext_resource type="PackedScene" uid="uid://burvvey16o4ul" path="res://Scenes/Jumper/platform.tscn" id="5_sv6bp"]
+[ext_resource type="PackedScene" uid="uid://dvl3wedg30ftd" path="res://Scenes/Jumper/house.tscn" id="6_rljou"]
+[ext_resource type="PackedScene" uid="uid://b7b5n3k8rf5tp" path="res://Scenes/Jumper/jumper_coin.tscn" id="6_y57xl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(20, 296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd5m"]
+size = Vector2(111, 370)
+
+[node name="JumpLevel" type="Node2D" unique_id=652908604]
+script = ExtResource("1_tf1mu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1814406303]
+offset_right = 1900.0
+offset_bottom = 200.0
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=1979580931]
+position = Vector2(1869, 142)
+texture = ExtResource("2_rljou")
+
+[node name="Hero" parent="." unique_id=1523931981 instance=ExtResource("2_l80qf")]
+position = Vector2(29, 173)
+
+[node name="EntryLeft" type="Node2D" parent="." unique_id=956266580]
+position = Vector2(33, 127)
+
+[node name="LevelElements" type="Node2D" parent="." unique_id=103390019]
+
+[node name="Platform" parent="LevelElements" unique_id=739698554 instance=ExtResource("5_sv6bp")]
+position = Vector2(660, 171)
+
+[node name="Platform4" parent="LevelElements" unique_id=1526008721 instance=ExtResource("5_sv6bp")]
+position = Vector2(829, 109)
+
+[node name="Platform5" parent="LevelElements" unique_id=736166235 instance=ExtResource("5_sv6bp")]
+position = Vector2(1450, 68)
+
+[node name="Platform3" parent="LevelElements" unique_id=502785341 instance=ExtResource("5_sv6bp")]
+position = Vector2(661, 49)
+
+[node name="Platform2" parent="LevelElements" unique_id=304078135 instance=ExtResource("5_sv6bp")]
+position = Vector2(235, 95)
+
+[node name="JumperCoin" parent="LevelElements" unique_id=1269250321 instance=ExtResource("6_y57xl")]
+position = Vector2(126, 129)
+
+[node name="JumperCoin2" parent="LevelElements" unique_id=2079363616 instance=ExtResource("6_y57xl")]
+position = Vector2(388, 77)
+
+[node name="JumperCoin3" parent="LevelElements" unique_id=2087254188 instance=ExtResource("6_y57xl")]
+position = Vector2(560, 75)
+
+[node name="JumperCoin5" parent="LevelElements" unique_id=1598411488 instance=ExtResource("6_y57xl")]
+position = Vector2(696, 17)
+
+[node name="JumperCoin4" parent="LevelElements" unique_id=1484852003 instance=ExtResource("6_y57xl")]
+position = Vector2(693, 136)
+
+[node name="JumperCoin6" parent="LevelElements" unique_id=599217728 instance=ExtResource("6_y57xl")]
+position = Vector2(864, 72)
+
+[node name="JumperCoin8" parent="LevelElements" unique_id=82594669 instance=ExtResource("6_y57xl")]
+position = Vector2(1133, 98)
+
+[node name="JumperCoin10" parent="LevelElements" unique_id=1002593674 instance=ExtResource("6_y57xl")]
+position = Vector2(1342, 93)
+
+[node name="JumperCoin11" parent="LevelElements" unique_id=1260715464 instance=ExtResource("6_y57xl")]
+position = Vector2(1485, 38)
+
+[node name="JumperCoin12" parent="LevelElements" unique_id=2119190502 instance=ExtResource("6_y57xl")]
+position = Vector2(1683, 154)
+
+[node name="JumperCoin13" parent="LevelElements" unique_id=1562292747 instance=ExtResource("6_y57xl")]
+position = Vector2(1805, 155)
+
+[node name="JumperCoin9" parent="LevelElements" unique_id=705092394 instance=ExtResource("6_y57xl")]
+position = Vector2(1238, 144)
+
+[node name="JumperCoin7" parent="LevelElements" unique_id=2131705701 instance=ExtResource("6_y57xl")]
+position = Vector2(1013, 133)
+
+[node name="JumperLine" parent="LevelElements" unique_id=742070032 instance=ExtResource("5_h0kw3")]
+position = Vector2(0, 184)
+
+[node name="JumperLine2" parent="LevelElements" unique_id=248318338 instance=ExtResource("5_h0kw3")]
+position = Vector2(48, 184)
+
+[node name="JumperLine3" parent="LevelElements" unique_id=42774695 instance=ExtResource("5_h0kw3")]
+position = Vector2(169, 182)
+
+[node name="JumperLine4" parent="LevelElements" unique_id=720274561 instance=ExtResource("5_h0kw3")]
+position = Vector2(216, 182)
+
+[node name="JumperLine5" parent="LevelElements" unique_id=1466734882 instance=ExtResource("5_h0kw3")]
+position = Vector2(264, 182)
+
+[node name="JumperLine6" parent="LevelElements" unique_id=1081813795 instance=ExtResource("5_h0kw3")]
+position = Vector2(311, 182)
+
+[node name="JumperLine7" parent="LevelElements" unique_id=1972425494 instance=ExtResource("5_h0kw3")]
+position = Vector2(1177, 187)
+
+[node name="JumperLine8" parent="LevelElements" unique_id=678095312 instance=ExtResource("5_h0kw3")]
+position = Vector2(1223, 187)
+
+[node name="JumperLine9" parent="LevelElements" unique_id=2041816513 instance=ExtResource("5_h0kw3")]
+position = Vector2(1266, 187)
+
+[node name="JumperLine10" parent="LevelElements" unique_id=297166775 instance=ExtResource("5_h0kw3")]
+position = Vector2(1612, 187)
+
+[node name="JumperLine11" parent="LevelElements" unique_id=1282265499 instance=ExtResource("5_h0kw3")]
+position = Vector2(1660, 187)
+
+[node name="JumperLine12" parent="LevelElements" unique_id=1551734754 instance=ExtResource("5_h0kw3")]
+position = Vector2(1708, 187)
+
+[node name="JumperLine13" parent="LevelElements" unique_id=1329287440 instance=ExtResource("5_h0kw3")]
+position = Vector2(1755, 187)
+
+[node name="JumperLine14" parent="LevelElements" unique_id=1817544801 instance=ExtResource("5_h0kw3")]
+position = Vector2(1802, 187)
+
+[node name="JumperLine15" parent="LevelElements" unique_id=466841423 instance=ExtResource("5_h0kw3")]
+position = Vector2(1848, 187)
+
+[node name="JumperLine16" parent="LevelElements" unique_id=1331386213 instance=ExtResource("5_h0kw3")]
+position = Vector2(1880, 187)
+
+[node name="JumperLine17" parent="LevelElements" unique_id=2017208812 instance=ExtResource("5_h0kw3")]
+position = Vector2(1927, 195)
+
+[node name="JumperLine18" parent="LevelElements" unique_id=958791982 instance=ExtResource("5_h0kw3")]
+position = Vector2(1973, 195)
+
+[node name="House" parent="LevelElements" unique_id=1399241204 instance=ExtResource("6_rljou")]
+position = Vector2(96, 158)
+
+[node name="House2" parent="LevelElements" unique_id=1819064154 instance=ExtResource("6_rljou")]
+position = Vector2(358, 110)
+
+[node name="House3" parent="LevelElements" unique_id=1767002168 instance=ExtResource("6_rljou")]
+position = Vector2(532, 110)
+
+[node name="House4" parent="LevelElements" unique_id=756738108 instance=ExtResource("6_rljou")]
+position = Vector2(985, 164)
+
+[node name="House5" parent="LevelElements" unique_id=1013144198 instance=ExtResource("6_rljou")]
+position = Vector2(1104, 123)
+
+[node name="House6" parent="LevelElements" unique_id=956136620 instance=ExtResource("6_rljou")]
+position = Vector2(1314, 123)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1412938293]
+position = Vector2(160, 100)
+
+[node name="CoinUI" type="Node2D" parent="Camera2D" unique_id=1604657661]
+position = Vector2(-158, -98)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CoinUI" unique_id=2026654906]
+texture = ExtResource("3_l80qf")
+centered = false
+
+[node name="Label" type="Label" parent="Camera2D/CoinUI" unique_id=1556878872]
+offset_left = 20.0
+offset_top = 2.0
+offset_right = 68.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ouauv")
+text = "0"
+
+[node name="BlackScreen" type="ColorRect" parent="Camera2D" unique_id=1244921556]
+visible = false
+offset_left = -160.0
+offset_top = -100.0
+offset_right = 160.0
+offset_bottom = 100.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Camera2D/BlackScreen" unique_id=1534983999]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 94.0
+offset_right = 224.0
+offset_bottom = 117.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ouauv")
+theme_override_font_sizes/font_size = 16
+text = "You died"
+
+[node name="InvisibleWalls" type="StaticBody2D" parent="." unique_id=797922442]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWalls" unique_id=1840063238]
+position = Vector2(-10, 51)
+shape = SubResource("RectangleShape2D_aw8ah")
+
+[node name="WinArea" type="Area2D" parent="." unique_id=1751367392]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea" unique_id=1519086150]
+position = Vector2(1965, 22)
+shape = SubResource("RectangleShape2D_pxd5m")
+
+[connection signal="hero_coin_collected" from="Hero" to="." method="_on_hero_hero_coin_collected"]
+[connection signal="body_entered" from="WinArea" to="." method="_on_win_area_body_entered"]

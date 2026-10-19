@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://hokwbktvqhkj"]
+
+[ext_resource type="Texture2D" uid="uid://b4pvbt1q6ukqi" path="res://img/Jumper/JumperTitle.png" id="1_38mxn"]
+[ext_resource type="Script" uid="uid://byop34l56r0ny" path="res://Scripts/jumper_title.gd" id="1_kr0of"]
+[ext_resource type="PackedScene" uid="uid://dvss8ujcg2k86" path="res://Scenes/hero.tscn" id="2_kr0of"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(357, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd5m"]
+size = Vector2(20, 254.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qhtv"]
+size = Vector2(20, 269)
+
+[node name="JumperTitle" type="Node2D" unique_id=122506185]
+script = ExtResource("1_kr0of")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1664737400]
+texture = ExtResource("1_38mxn")
+centered = false
+
+[node name="Hero" parent="." unique_id=1523931981 instance=ExtResource("2_kr0of")]
+position = Vector2(25, 121)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=956524968]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1704609399]
+position = Vector2(155, 173)
+shape = SubResource("RectangleShape2D_aw8ah")
+
+[node name="EntryLeft" type="Node2D" parent="." unique_id=332814409]
+position = Vector2(25, 124)
+
+[node name="EntryRight" type="Node2D" parent="." unique_id=2112628407]
+position = Vector2(276, 114)
+
+[node name="ExitLeft" type="Area2D" parent="." unique_id=1832921716]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitLeft" unique_id=1602926470]
+position = Vector2(-22, 41.25)
+shape = SubResource("RectangleShape2D_pxd5m")
+
+[node name="ExitRight" type="Area2D" parent="." unique_id=487884825]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitRight" unique_id=693161566]
+position = Vector2(332, 33.5)
+shape = SubResource("RectangleShape2D_6qhtv")
+
+[connection signal="body_entered" from="ExitLeft" to="." method="_on_exit_left_body_entered"]
+[connection signal="body_entered" from="ExitRight" to="." method="_on_exit_right_body_entered"]

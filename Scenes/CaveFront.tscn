@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://c3vm8o6nw6rf3"]
+
+[ext_resource type="Texture2D" uid="uid://cl7fl7u83171p" path="res://img/Mountain.png" id="1_c5rs2"]
+[ext_resource type="Script" uid="uid://cunrsujtyqfcq" path="res://Scripts/cave_front.gd" id="1_enl4k"]
+[ext_resource type="PackedScene" uid="uid://dvss8ujcg2k86" path="res://Scenes/hero.tscn" id="2_enl4k"]
+[ext_resource type="PackedScene" uid="uid://yxsc47pro1l6" path="res://Scenes/CaveLock.tscn" id="3_gqcjl"]
+[ext_resource type="PackedScene" uid="uid://dbxq0p4djq03o" path="res://Scenes/adventure_ui.tscn" id="3_ydcyr"]
+[ext_resource type="PackedScene" uid="uid://bur0sv35we3up" path="res://Scenes/AdventureMessageBox.tscn" id="6_gqcjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqcjl"]
+size = Vector2(338, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g53sd"]
+size = Vector2(20, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nctwp"]
+size = Vector2(124, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwti2"]
+size = Vector2(166.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5rs2"]
+size = Vector2(44, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enl4k"]
+size = Vector2(20, 78)
+
+[node name="CaveFront" type="Node2D" unique_id=2002335516]
+script = ExtResource("1_enl4k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=775158226]
+texture = ExtResource("1_c5rs2")
+centered = false
+
+[node name="CaveLock" parent="." unique_id=1513928934 instance=ExtResource("3_gqcjl")]
+position = Vector2(137, 112)
+
+[node name="Hero" parent="." unique_id=1523931981 instance=ExtResource("2_enl4k")]
+
+[node name="AdventureUI" parent="." unique_id=1485069369 instance=ExtResource("3_ydcyr")]
+
+[node name="EntryCave" type="Node2D" parent="." unique_id=1520115299]
+position = Vector2(137, 135)
+
+[node name="EntryRight" type="Node2D" parent="." unique_id=809204591]
+position = Vector2(302, 182)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=824362283]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=649616901]
+position = Vector2(168, 208)
+shape = SubResource("RectangleShape2D_gqcjl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=805573080]
+position = Vector2(-8, 158)
+shape = SubResource("RectangleShape2D_g53sd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1979616654]
+position = Vector2(54, 114)
+shape = SubResource("RectangleShape2D_nctwp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=466797094]
+position = Vector2(240.75, 114)
+shape = SubResource("RectangleShape2D_lwti2")
+
+[node name="ExitCave" type="Area2D" parent="." unique_id=1015266601]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitCave" unique_id=1679788923]
+position = Vector2(137, 103)
+shape = SubResource("RectangleShape2D_c5rs2")
+
+[node name="ExitRight" type="Area2D" parent="." unique_id=1109121438]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitRight" unique_id=897967560]
+position = Vector2(334, 162)
+shape = SubResource("RectangleShape2D_enl4k")
+
+[node name="MessageBox" parent="." unique_id=764465807 instance=ExtResource("6_gqcjl")]
+
+[connection signal="body_entered" from="ExitCave" to="." method="_on_exit_cave_body_entered"]
+[connection signal="body_entered" from="ExitRight" to="." method="_on_exit_right_body_entered"]

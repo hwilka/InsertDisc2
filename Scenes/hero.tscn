@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dvss8ujcg2k86"]
+
+[ext_resource type="Script" uid="uid://ggrnllt8jgdy" path="res://Scripts/hero.gd" id="1_stlmo"]
+[ext_resource type="SpriteFrames" uid="uid://dpw0yqbw35f3t" path="res://Animation/hero_walking_animation.tres" id="2_stlmo"]
+[ext_resource type="Texture2D" uid="uid://c17p3gn0feprr" path="res://img/Sword_Large.png" id="2_ucn7y"]
+[ext_resource type="Texture2D" uid="uid://dgbpn6favq288" path="res://img/Interact.png" id="3_awl7p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qhtv"]
+size = Vector2(14, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(24, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd5m"]
+size = Vector2(22, 37)
+
+[node name="Hero" type="CharacterBody2D" unique_id=1523931981]
+collision_mask = 2
+script = ExtResource("1_stlmo")
+
+[node name="SwordRot" type="Node2D" parent="." unique_id=1794274931]
+position = Vector2(0, -17)
+
+[node name="Sword" type="Sprite2D" parent="SwordRot" unique_id=1628857471]
+visible = false
+position = Vector2(0, -40)
+texture = ExtResource("2_ucn7y")
+
+[node name="hitbox" type="Area2D" parent="SwordRot" unique_id=1653074238]
+collision_layer = 256
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordRot/hitbox" unique_id=1562708074]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_6qhtv")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1111101440]
+sprite_frames = ExtResource("2_stlmo")
+animation = &"idle_down"
+frame_progress = 0.96386534
+centered = false
+offset = Vector2(-16, -48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=634362214]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_aw8ah")
+
+[node name="Interact" type="Sprite2D" parent="." unique_id=1822110832]
+visible = false
+position = Vector2(0, -54)
+texture = ExtResource("3_awl7p")
+
+[node name="CoinCollider" type="CharacterBody2D" parent="." unique_id=1794996377]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinCollider" unique_id=1491761283]
+position = Vector2(0, -21.5)
+shape = SubResource("RectangleShape2D_pxd5m")

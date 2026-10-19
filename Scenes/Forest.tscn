@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://dbmhjcn5rugii"]
+
+[ext_resource type="Script" uid="uid://d70eqb4viitj" path="res://Scripts/forest.gd" id="1_jxn1b"]
+[ext_resource type="Texture2D" uid="uid://dno3g7qal5djy" path="res://img/Adventure_forest.png" id="2_025ct"]
+[ext_resource type="PackedScene" uid="uid://ckx02otd1aop" path="res://Scenes/bush.tscn" id="3_trx64"]
+[ext_resource type="PackedScene" uid="uid://dvss8ujcg2k86" path="res://Scenes/hero.tscn" id="3_vt41e"]
+[ext_resource type="PackedScene" uid="uid://dbxq0p4djq03o" path="res://Scenes/adventure_ui.tscn" id="4_uvcgv"]
+[ext_resource type="PackedScene" uid="uid://dki4fvvj0wvvc" path="res://Scenes/AdventureSign.tscn" id="5_27oxr"]
+[ext_resource type="PackedScene" uid="uid://bur0sv35we3up" path="res://Scenes/AdventureMessageBox.tscn" id="6_cpevq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(340, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd5m"]
+size = Vector2(78, 244)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qhtv"]
+size = Vector2(87, 205)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlu20"]
+size = Vector2(134, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdxel"]
+size = Vector2(112, 220)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wfv6"]
+size = Vector2(63, 183)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvcgv"]
+size = Vector2(22, 78.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trx64"]
+size = Vector2(23, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpevq"]
+size = Vector2(35, 97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27oxr"]
+size = Vector2(106, 20)
+
+[node name="Forest" type="Node2D" unique_id=1203843743]
+script = ExtResource("1_jxn1b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1096502986]
+texture = ExtResource("2_025ct")
+centered = false
+
+[node name="Sign" parent="." unique_id=1315198960 instance=ExtResource("5_27oxr")]
+position = Vector2(250, 500)
+message = "East: Shop
+North: Castle"
+
+[node name="Sign2" parent="." unique_id=311515006 instance=ExtResource("5_27oxr")]
+position = Vector2(256, 235)
+message = "East: Village"
+
+[node name="Bush" parent="." unique_id=325743942 instance=ExtResource("3_trx64")]
+position = Vector2(95, 175)
+
+[node name="Bush2" parent="." unique_id=556431789 instance=ExtResource("3_trx64")]
+position = Vector2(128, 160)
+
+[node name="Bush3" parent="." unique_id=682629879 instance=ExtResource("3_trx64")]
+position = Vector2(158, 175)
+
+[node name="Bush4" parent="." unique_id=1438851358 instance=ExtResource("3_trx64")]
+position = Vector2(189, 162)
+
+[node name="Bush5" parent="." unique_id=2091268678 instance=ExtResource("3_trx64")]
+position = Vector2(217, 143)
+
+[node name="Hero" parent="." unique_id=1523931981 instance=ExtResource("3_vt41e")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=556877054]
+position = Vector2(160, 0)
+
+[node name="AdventureUI" parent="Camera2D" unique_id=1485069369 instance=ExtResource("4_uvcgv")]
+position = Vector2(-160, -100)
+
+[node name="MessageBox" parent="Camera2D" unique_id=764465807 instance=ExtResource("6_cpevq")]
+offset_left = -120.0
+offset_top = -92.0
+offset_right = 120.0
+offset_bottom = -52.0
+
+[node name="EntryLeft" type="Node2D" parent="." unique_id=2080622175]
+position = Vector2(14, 572)
+
+[node name="EntryShop" type="Node2D" parent="." unique_id=322911959]
+position = Vector2(299, 552)
+
+[node name="EntryMid" type="Node2D" parent="." unique_id=1768463559]
+position = Vector2(291, 284)
+
+[node name="EntryTop" type="Node2D" parent="." unique_id=1429091915]
+position = Vector2(158, 36)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=977137852]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1835338350]
+position = Vector2(159, 606)
+shape = SubResource("RectangleShape2D_aw8ah")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1675924098]
+position = Vector2(29, 393)
+shape = SubResource("RectangleShape2D_pxd5m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=805719626]
+position = Vector2(33.5, 168.5)
+shape = SubResource("RectangleShape2D_6qhtv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=1067141190]
+position = Vector2(57, 28)
+shape = SubResource("RectangleShape2D_vlu20")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls" unique_id=794994735]
+position = Vector2(287, 109)
+shape = SubResource("RectangleShape2D_sdxel")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls" unique_id=1997619859]
+position = Vector2(309.5, 407.5)
+shape = SubResource("RectangleShape2D_3wfv6")
+
+[node name="ExitLeft" type="Area2D" parent="." unique_id=642541628]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitLeft" unique_id=45223322]
+position = Vector2(-19, 554.375)
+shape = SubResource("RectangleShape2D_uvcgv")
+
+[node name="ExitShop" type="Area2D" parent="." unique_id=377810314]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitShop" unique_id=405875292]
+position = Vector2(337.5, 546.5)
+shape = SubResource("RectangleShape2D_trx64")
+
+[node name="ExitMid" type="Area2D" parent="." unique_id=575812857]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitMid" unique_id=1714529915]
+position = Vector2(347.5, 267.5)
+shape = SubResource("RectangleShape2D_cpevq")
+
+[node name="ExitTop" type="Area2D" parent="." unique_id=1675276813]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTop" unique_id=1427397873]
+position = Vector2(178, -11)
+shape = SubResource("RectangleShape2D_27oxr")
+
+[connection signal="body_entered" from="ExitLeft" to="." method="_on_exit_left_body_entered"]
+[connection signal="body_entered" from="ExitShop" to="." method="_on_exit_shop_body_entered"]
+[connection signal="body_entered" from="ExitMid" to="." method="_on_exit_mid_body_entered"]
+[connection signal="body_entered" from="ExitTop" to="." method="_on_exit_top_body_entered"]

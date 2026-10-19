@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://burvvey16o4ul"]
+
+[ext_resource type="Texture2D" uid="uid://ciwpxtnk8bo0w" path="res://img/Jumper/platform.png" id="1_e7lrv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(88, 13)
+
+[node name="Platform" type="StaticBody2D" unique_id=739698554]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=214290578]
+texture = ExtResource("1_e7lrv")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1728322680]
+position = Vector2(44, 6.5)
+shape = SubResource("RectangleShape2D_aw8ah")

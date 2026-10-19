@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://c4rw51g2byvan"]
+
+[ext_resource type="Script" uid="uid://buvom20ig786l" path="res://Scripts/castle_front.gd" id="1_75shm"]
+[ext_resource type="Texture2D" uid="uid://oppv2n7b0g8f" path="res://img/Castle_Front.png" id="2_y4cig"]
+[ext_resource type="PackedScene" uid="uid://dvss8ujcg2k86" path="res://Scenes/hero.tscn" id="3_gavei"]
+[ext_resource type="PackedScene" uid="uid://dmmrvxvamdaui" path="res://Scenes/GoldenLock.tscn" id="3_y4cig"]
+[ext_resource type="PackedScene" uid="uid://dbxq0p4djq03o" path="res://Scenes/adventure_ui.tscn" id="4_rgmtw"]
+[ext_resource type="PackedScene" uid="uid://bur0sv35we3up" path="res://Scenes/AdventureMessageBox.tscn" id="5_gavei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(105, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd5m"]
+size = Vector2(118, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qhtv"]
+size = Vector2(20, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlu20"]
+size = Vector2(20, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdxel"]
+size = Vector2(125, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wfv6"]
+size = Vector2(145, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1rt7"]
+size = Vector2(66.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jco0"]
+size = Vector2(111, 20)
+
+[node name="CastleFront" type="Node2D" unique_id=1799334680]
+script = ExtResource("1_75shm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1529278085]
+texture = ExtResource("2_y4cig")
+centered = false
+
+[node name="GoldenLock" parent="." unique_id=1523723765 instance=ExtResource("3_y4cig")]
+position = Vector2(123, 67)
+
+[node name="Hero" parent="." unique_id=1523931981 instance=ExtResource("3_gavei")]
+
+[node name="MessageBox" parent="." unique_id=764465807 instance=ExtResource("5_gavei")]
+
+[node name="AdventureUI" parent="." unique_id=1485069369 instance=ExtResource("4_rgmtw")]
+
+[node name="EntryBottom" type="Node2D" parent="." unique_id=465367231]
+position = Vector2(153, 194)
+
+[node name="EntryCastle" type="Node2D" parent="." unique_id=1510436128]
+position = Vector2(154, 154)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1199711810]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2008153582]
+position = Vector2(43, 208)
+shape = SubResource("RectangleShape2D_aw8ah")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=616115160]
+position = Vector2(264, 208)
+shape = SubResource("RectangleShape2D_pxd5m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=644021872]
+position = Vector2(-9, 165.5)
+shape = SubResource("RectangleShape2D_6qhtv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=461540852]
+position = Vector2(328, 166)
+shape = SubResource("RectangleShape2D_vlu20")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1071566568]
+position = Vector2(60.5, 127)
+shape = SubResource("RectangleShape2D_sdxel")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1506997490]
+position = Vector2(261.5, 127)
+shape = SubResource("RectangleShape2D_3wfv6")
+
+[node name="ExitCastle" type="Area2D" parent="." unique_id=110929982]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitCastle" unique_id=1019297629]
+position = Vector2(155.75, 122)
+shape = SubResource("RectangleShape2D_l1rt7")
+
+[node name="ExitBottom" type="Area2D" parent="." unique_id=1756059458]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitBottom" unique_id=1225740195]
+position = Vector2(150.5, 218)
+shape = SubResource("RectangleShape2D_6jco0")
+
+[connection signal="body_entered" from="ExitCastle" to="." method="_on_exit_castle_body_entered"]
+[connection signal="body_entered" from="ExitBottom" to="." method="_on_exit_bottom_body_entered"]

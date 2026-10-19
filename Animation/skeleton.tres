@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b8t00wqpcbtoq"]
+
+[ext_resource type="Texture2D" uid="uid://drt3w0162pu8o" path="res://img/skeleton.png" id="1_rm8q6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlrk1"]
+atlas = ExtResource("1_rm8q6")
+region = Rect2(0, 0, 106, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfaem"]
+atlas = ExtResource("1_rm8q6")
+region = Rect2(106, 0, 106, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quvtq"]
+atlas = ExtResource("1_rm8q6")
+region = Rect2(212, 0, 106, 67)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlrk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfaem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quvtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfaem")
+}],
+"loop": 1,
+"name": &"skeleton_anim",
+"speed": 5.0
+}]

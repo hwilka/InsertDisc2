@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://bv7dwffosyx24"]
+
+[ext_resource type="Script" uid="uid://bdsf0oad811qe" path="res://Scripts/castle.gd" id="1_6248w"]
+[ext_resource type="Texture2D" uid="uid://ltcal5yp57a2" path="res://img/castle_inside.png" id="2_a2p64"]
+[ext_resource type="PackedScene" uid="uid://dvss8ujcg2k86" path="res://Scenes/hero.tscn" id="3_3g4jb"]
+[ext_resource type="PackedScene" uid="uid://dbxq0p4djq03o" path="res://Scenes/adventure_ui.tscn" id="4_xnynr"]
+[ext_resource type="SpriteFrames" uid="uid://b8t00wqpcbtoq" path="res://Animation/skeleton.tres" id="5_a2p64"]
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="6_3g4jb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y0bp"]
+size = Vector2(106, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26lr2"]
+size = Vector2(77, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw8ah"]
+size = Vector2(132, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd5m"]
+size = Vector2(126, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qhtv"]
+size = Vector2(38, 351)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlu20"]
+size = Vector2(20, 321)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdxel"]
+size = Vector2(61, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wfv6"]
+size = Vector2(68, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1rt7"]
+size = Vector2(88, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jco0"]
+size = Vector2(91, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w47hu"]
+size = Vector2(61, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6msv6"]
+size = Vector2(59, 20)
+
+[node name="Castle" type="Node2D" unique_id=594224560]
+script = ExtResource("1_6248w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1585968799]
+texture = ExtResource("2_a2p64")
+centered = false
+
+[node name="Skeleton" type="Area2D" parent="." unique_id=522995649]
+position = Vector2(160, 230)
+collision_layer = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Skeleton" unique_id=1790674057]
+sprite_frames = ExtResource("5_a2p64")
+animation = &"skeleton_anim"
+frame_progress = 0.4904872
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton" unique_id=961714943]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_1y0bp")
+
+[node name="Area2D" type="Area2D" parent="Skeleton" unique_id=1756670207]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton/Area2D" unique_id=1044613718]
+position = Vector2(-1.5, -2)
+shape = SubResource("RectangleShape2D_26lr2")
+
+[node name="Hero" parent="." unique_id=1523931981 instance=ExtResource("3_3g4jb")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1701560978]
+offset = Vector2(160, 0)
+
+[node name="AdventureUI" parent="Camera2D" unique_id=1485069369 instance=ExtResource("4_xnynr")]
+position = Vector2(0, -100)
+
+[node name="DarkScreen" type="ColorRect" parent="Camera2D" unique_id=909052330]
+visible = false
+offset_top = -100.0
+offset_right = 320.0
+offset_bottom = 100.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Camera2D/DarkScreen" unique_id=932744262]
+visible = false
+layout_mode = 0
+offset_left = 22.0
+offset_top = 67.0
+offset_right = 305.0
+offset_bottom = 123.0
+theme_override_fonts/font = ExtResource("6_3g4jb")
+text = "You were hit 
+by the skeleton"
+horizontal_alignment = 1
+
+[node name="EntryBottom" type="Node2D" parent="." unique_id=1057846138]
+position = Vector2(163, 386)
+
+[node name="EntryTop" type="Node2D" parent="." unique_id=1152224163]
+position = Vector2(160, 104)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1607771685]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2116529966]
+position = Vector2(67, 404)
+shape = SubResource("RectangleShape2D_aw8ah")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1076996606]
+position = Vector2(255, 404)
+shape = SubResource("RectangleShape2D_pxd5m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=770581725]
+position = Vector2(33, 225.5)
+shape = SubResource("RectangleShape2D_6qhtv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=97391840]
+position = Vector2(278, 239.5)
+shape = SubResource("RectangleShape2D_vlu20")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1069508009]
+position = Vector2(76.5, 239.5)
+shape = SubResource("RectangleShape2D_sdxel")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=417341747]
+position = Vector2(247, 239.5)
+shape = SubResource("RectangleShape2D_3wfv6")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1943086684]
+position = Vector2(93, 81)
+shape = SubResource("RectangleShape2D_l1rt7")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1003652401]
+position = Vector2(228.5, 81)
+shape = SubResource("RectangleShape2D_6jco0")
+
+[node name="ExitBottom" type="Area2D" parent="." unique_id=1643772287]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitBottom" unique_id=1595537286]
+position = Vector2(162.5, 416)
+shape = SubResource("RectangleShape2D_w47hu")
+
+[node name="ExitTop" type="Area2D" parent="." unique_id=1608620495]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTop" unique_id=148081245]
+position = Vector2(156.5, 74)
+shape = SubResource("RectangleShape2D_6msv6")
+
+[connection signal="body_entered" from="Skeleton" to="." method="_on_skeleton_body_entered"]
+[connection signal="area_entered" from="Skeleton/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="ExitBottom" to="." method="_on_exit_bottom_body_entered"]
+[connection signal="body_entered" from="ExitTop" to="." method="_on_exit_top_body_entered"]

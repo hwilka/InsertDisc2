@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bur0sv35we3up"]
+
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="1_3gktj"]
+[ext_resource type="Script" uid="uid://c6n5t1g3i7du" path="res://Scripts/adventure_message_box.gd" id="1_wf6t3"]
+
+[node name="MessageBox" type="ColorRect" unique_id=764465807]
+visible = false
+offset_left = 40.0
+offset_top = 8.0
+offset_right = 280.0
+offset_bottom = 48.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_wf6t3")
+
+[node name="Label" type="Label" parent="." unique_id=461134791]
+custom_maximum_size = Vector2(236, 36)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 238.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_3gktj")
+theme_override_font_sizes/font_size = 8
+text = "Test"
+autowrap_mode = 2

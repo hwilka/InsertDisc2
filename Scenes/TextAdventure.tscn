@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b8pi8w73s2ter"]
+
+[ext_resource type="Script" uid="uid://dpbfq0cip21ei" path="res://Scripts/text_adventure.gd" id="1_dv530"]
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="2_nj2ul"]
+
+[node name="TextAdventure" type="Node2D" unique_id=1180356359]
+script = ExtResource("1_dv530")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1559244857]
+offset_right = 320.0
+offset_bottom = 200.0
+color = Color(0, 0, 0, 1)
+
+[node name="Log" type="Label" parent="." unique_id=312298331]
+custom_maximum_size = Vector2(314, 10000)
+offset_left = 2.0
+offset_top = -9842.0
+offset_right = 316.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_nj2ul")
+theme_override_font_sizes/font_size = 8
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Label0" type="Label" parent="." unique_id=1390798028]
+offset_left = 2.0
+offset_top = 170.0
+offset_right = 316.0
+offset_bottom = 178.0
+theme_override_colors/font_color = Color(0.5237806, 0.5237806, 0.5237805, 1)
+theme_override_fonts/font = ExtResource("2_nj2ul")
+theme_override_font_sizes/font_size = 8
+text = "Test"
+
+[node name="Label1" type="Label" parent="." unique_id=77281175]
+offset_left = 2.0
+offset_top = 180.0
+offset_right = 316.0
+offset_bottom = 188.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_nj2ul")
+theme_override_font_sizes/font_size = 8
+text = "Test"
+
+[node name="Label2" type="Label" parent="." unique_id=1163600722]
+offset_left = 2.0
+offset_top = 190.0
+offset_right = 316.0
+offset_bottom = 198.0
+theme_override_colors/font_color = Color(0.5254902, 0.5254902, 0.5254902, 1)
+theme_override_fonts/font = ExtResource("2_nj2ul")
+theme_override_font_sizes/font_size = 8
+text = "Test"

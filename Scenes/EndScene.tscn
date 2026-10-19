@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bq8kbaot8coo2"]
+
+[ext_resource type="Script" uid="uid://briw5heydgy8y" path="res://Scripts/end_scene.gd" id="1_ryui2"]
+[ext_resource type="FontFile" uid="uid://b4tnq0vcob85r" path="res://fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="2_fxskr"]
+
+[node name="EndScene" type="Node2D" unique_id=1270681930]
+script = ExtResource("1_ryui2")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1271129531]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Thanks" type="Label" parent="." unique_id=821052225]
+visible = false
+offset_left = 122.0
+offset_top = 788.0
+offset_right = 1831.0
+offset_bottom = 916.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_fxskr")
+theme_override_font_sizes/font_size = 80
+text = "Thank you for playing"
+
+[node name="TitleScale" type="Node2D" parent="." unique_id=409151921]
+position = Vector2(960, 400)
+
+[node name="Title" type="Label" parent="TitleScale" unique_id=1299099759]
+visible = false
+offset_left = -648.0
+offset_top = -46.0
+offset_right = 622.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_fxskr")
+theme_override_font_sizes/font_size = 96
+text = "Insert Disc 2"
